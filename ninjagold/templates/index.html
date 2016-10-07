@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+  </head>
+  <style media="screen">
+  #container {
+    margin:0px auto;
+    width: 1200px;
+  }
+  #gold {
+    margin-left: 30px;
+  }
+  .buildings{
+    text-align: center;
+    border: 1px solid black;
+    width: 130px;
+    height: 200px;
+    display: inline-block;
+    margin: 30px 30px;
+    vertical-align: top;
+  }
+  #activity {
+    width: 800px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 30px;
+
+  }
+  </style>
+  <script type="text/javascript">
+
+  </script>
+  <body>
+    <div id="container">
+      <h3 id="gold">Your Gold: {{session['gold']}}</h3><br>
+      <div class="buildings">
+        <h2>Farm</h2>
+        <h3>Earns 10-20 golds</h3>
+        <form class="findgold" action="/process_money" method="post">
+          <input type="hidden" name="building" value="farm">
+          <input type="submit" value="Find Gold!!!">
+        </form>
+      </div>
+      <div class="buildings">
+        <h2>Cave</h2>
+        <h3>Earns 5-10 golds</h3>
+        <form class="findgold" action="/process_money" method="post">
+          <input type="hidden" name="building" value="cave">
+          <input type="submit" value="Find Gold!!!">
+        </form>
+      </div>
+      <div class="buildings">
+        <h2>House</h2>
+        <h3>Earns 2-5 golds</h3>
+        <form class="findgold" action="/process_money" method="post">
+          <input type="hidden" name="building" value="house">
+          <input type="submit" value="Find Gold!!!">
+        </form>
+      </div>
+      <div class="buildings">
+        <h2>Casino</h2>
+        <h3>Earns/takes 0-50 golds</h3>
+        <form class="findgold" action="/process_money" method="post">
+          <input type="hidden" name="building" value="casino">
+          <input type="submit" value="Find Gold!!!">
+        </form>
+      </div>
+      <br>
+      <p style="margin-left:30px;">
+        activities:
+      </p>
+      <div id="activity" style="overflow-x: scroll; height 300px;">
+        <ul>
+          {%for i in range(0, number)%}
+            <li>{{activity_log[i]}}</li>
+          {%endfor%}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

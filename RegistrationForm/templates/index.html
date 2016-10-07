@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+  <h1>Enter Your Registration Form below</h1>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      <ul class=flashes style="color:red;">
+        {% for category, message in messages %}
+          <li class="{{category}}">{{ message}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form action='/process' method='POST'>
+    Email:<input type="text" name="email">
+    First Name:<input type="text" name="firstname" value="">
+    Last Name: <input type="text" name="lastname" value="">
+    password: <input type="password" name="password" value="">
+    confirm password <input type="password" name="password1" value="">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
